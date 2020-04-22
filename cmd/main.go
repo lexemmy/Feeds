@@ -26,6 +26,11 @@ func main()  {
 	err = exporter.Exportxml(twt, "twt.xml")
 	err = exporter.Exportxml(lnkd, "lnkd.xml")
 
+	err = exporter.Exportyaml(fb,"fb.yaml")
+	err = exporter.Exportyaml(twt, "twt.yaml")
+	err = exporter.Exportyaml(lnkd, "lnkd.yaml")
+	
+
 	if err != nil {
 		panic(err)
 	}
