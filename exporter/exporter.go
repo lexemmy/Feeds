@@ -37,7 +37,7 @@ func Exportjson(u feeds.SocialMedia, filename string) error {
 		i++
 		l[i] = fd
 
-		k, _ := json.Marshal(l)
+		k, _ := json.MarshalIndent(l, " ", " ")
 		n, err := f.Write([]byte(k))
 		if err != nil  {
 			return errors.New("an error occured writing to file: " + err.Error())
@@ -52,12 +52,12 @@ func Exportxml(u feeds.SocialMedia, filename string) error {
 		return errors.New("an error occured opening the file: " + err.Error())
 	}
 
-	for _, fd := range u.Feed(){
+	 fd := u.Feed()
 		k, _ := xml.MarshalIndent(fd, " ", " ")
 		n, err := f.Write([]byte(k))
 		if err != nil  {
 			return errors.New("an error occured writing to file: " + err.Error())
-		}
+		
 		fmt.Printf("wrote %d bytes\n", n)
 	}
 	return nil

@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"feeds"
 	"feeds/facebook"
 	"feeds/twitter"
 	"feeds/linkedin"
@@ -34,21 +32,9 @@ func main()  {
 	if err != nil {
 		panic(err)
 	}
-
-	//twt := new(twitter.Twitter)
-	//lnkd := new(linkedin.Linkedin)
-		
-	//ScrollFeeds(fb, twt, lnkd)
 }
 
-func ScrollFeeds(platforms ...feeds.SocialMedia){
-	for _, sm := range platforms{
-		for _, fd := range sm.Feed(){
-			fmt.Println(fd)
-		}
-		fmt.Println("===============================")
-	}
-}
+
 
 
 
